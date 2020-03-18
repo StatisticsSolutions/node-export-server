@@ -52,15 +52,15 @@ const cdnScriptsOptional = {
   '{{version}}/modules/tilemap.js': 1,
   '{{version}}/modules/histogram-bellcurve.js': 1,
   '{{version}}/modules/bullet.js': 1,
-  '{{version}}/modules/organization.js': 1,
-  '{{version}}/modules/funnel3d.js': 1,
-  '{{version}}/modules/pyramid3d.js': 1,
-  '{{version}}/modules/dependency-wheel.js': 1,
+//   '{{version}}/modules/organization.js': 1,
+//   '{{version}}/modules/funnel3d.js': 1,
+//   '{{version}}/modules/pyramid3d.js': 1,
+//   '{{version}}/modules/dependency-wheel.js': 1,
   '{{version}}/modules/item-series.js': 1,
-  '{{version}}/modules/timeline.js': 1,
-  '{{version}}/modules/pareto.js': 1,
-  '{{version}}/modules/coloraxis.js': 1,
-  '{{version}}/modules/venn.js': 1
+//   '{{version}}/modules/timeline.js': 1,
+  '{{version}}/modules/pareto.js': 1
+//   '{{version}}/modules/coloraxis.js': 1,
+//   '{{version}}/modules/venn.js': 1
 };
 
 // The scripts here will appear as user prompts
@@ -444,19 +444,20 @@ function useIfDefined(what, def) {
   return (typeof what === 'undefined' ? def : what);
 }
 
-if (process.env.ACCEPT_HIGHCHARTS_LICENSE) {
+// if (process.env.ACCEPT_HIGHCHARTS_LICENSE) {
 
-    cdnURL = process.env.HIGHCHARTS_CDN || cdnURL;
+//     cdnURL = process.env.HIGHCHARTS_CDN || cdnURL;
 
-    embedAll(
-      useIfDefined(process.env.HIGHCHARTS_VERSION, 'latest'),
-      useIfDefined(process.env.HIGHCHARTS_USE_STYLED, true),
-      useIfDefined(process.env.HIGHCHARTS_USE_MAPS, true),
-      useIfDefined(process.env.HIGHCHARTS_MOMENT, false),
-      useIfDefined(process.env.HIGHCHARTS_USE_GANTT, true),
-      getOptionals(cdnScriptsOptional, true)
-    );
-} else {
-    console.log(fs.readFileSync(__dirname + '/msg/licenseagree.msg').toString().bold);
-    startPrompt();
-}
+//     embedAll(
+//       useIfDefined(process.env.HIGHCHARTS_VERSION, 'latest'),
+//       useIfDefined(process.env.HIGHCHARTS_USE_STYLED, true),
+//       useIfDefined(process.env.HIGHCHARTS_USE_MAPS, true),
+//       useIfDefined(process.env.HIGHCHARTS_MOMENT, false),
+//       useIfDefined(process.env.HIGHCHARTS_USE_GANTT, true),
+//       getOptionals(cdnScriptsOptional, true)
+//     );
+// } else {
+//     console.log(fs.readFileSync(__dirname + '/msg/licenseagree.msg').toString().bold);
+//     startPrompt();
+// }
+embedAll('6.1.4', false, false, false, false, {});
